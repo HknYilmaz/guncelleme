@@ -93,7 +93,7 @@ const TextContainer = ({ kullanicilar, yonlendir,setAnahtar, parentKey, mod,us ,
                    
                   
                     <Link target="_blank" to={`/chat?isim=${parentKey.isim}&oda=${adres}`}>
-                          <button className={'bulus mt-30'} value={key} onClick={e => gonder(e)} type="submit">Bulus</button>
+                          <button className={'bulus mt-30'} value={key} onClick={e => gonder(e)} type="submit">Bulusk</button>
                     </Link>
                     <img alt="Online Icon" src={onlineIcon}/>
                   </div>
