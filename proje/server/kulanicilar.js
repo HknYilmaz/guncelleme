@@ -18,13 +18,13 @@ const kullaniciEkle = ({ id, isim, oda }) => {
 
   const denem = kullanicilar.find((kullanici) => { return kullanici.odaBilgi.oda === oda });
   if(denem === undefined){
-    console.log("tanımlanması");
+    
     odaBilgi = { oda , us , mod};
   }
   else{
     odaBilgi = denem.odaBilgi;
   }
-  console.log(odaBilgi.oda);
+  
   
   
    
@@ -38,7 +38,7 @@ const kullaniciEkle = ({ id, isim, oda }) => {
   const kullanici = { id, isim, odaBilgi , key };
 
   kullanicilar.push(kullanici);
-  console.log(isim+"isim");
+  
   
   return { kullanici };
 }
@@ -56,10 +56,10 @@ const odadakiKullanicilar = (oda) => kullanicilar.filter((kullanici) => kullanic
 
 const publicAnahtarlar = (oda) => {
   const sil = kullanicilar.map((kullanici) => {
-    console.log(kullanici.isim);
+   
     return modla(kullanici.key,kullanici.odaBilgi.us,kullanici.odaBilgi.mod);
   })
-  console.log(sil+"sil");
+  
   return sil;
 }
 

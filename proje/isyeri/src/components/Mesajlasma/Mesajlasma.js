@@ -38,12 +38,17 @@ const Mesajlasma = ({ location }) => {
       }
     });
 
-    socket.on("odaBilgi", ({ oda,kullanicilar }) => {
+    socket.on("odaBilgi", ({us, mod,oda,kullanicilar }) => {
       
       let anahtar = kullanicilar.find((kullanici) => { return kullanici.isim === isim});
-      setKey(anahtar.key);
-      setMod(anahtar.odaBilgi.mod);
-      setUs(anahtar.odaBilgi.us);  
+     
+      console.log(mod+"mod");
+      console.log(us+"us");
+      
+      setKey(anahtar);
+      setMod(mod);
+      setUs(us);  
+      
     });
 
   }, [ENDPOINT, location.search]);
@@ -61,11 +66,9 @@ const Mesajlasma = ({ location }) => {
      
     });
     socket.on('publicAnahtarlar',dene => {
-       const sil =  dene.map((sa) => {
-        console.log(sa+"sil");
-        
-      })
-      setacikkeyler(dene);
+      console.log(dene.acikanahtarlar);
+      
+      setacikkeyler(dene.acikanahtarlar);
     });
 
 
@@ -95,8 +98,7 @@ const Mesajlasma = ({ location }) => {
       </div>
        
       <TextContainer kullanicilar={kullanicilar} yonlendir={yonlendir} setAnahtar={setAnahtar} parentKey={key} mod={mod} us={us} isim={isim} acikkeyler={acikkeyler}  />
-        <h1>{acikkeyler.map((sa) => {console.log(sa+"ananın");
-        })}</h1>
+       
     </div>
   )
 }
